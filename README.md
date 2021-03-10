@@ -110,7 +110,7 @@ sudo dnf install nmap -y
 
 sudo dnf install netdiscover -y
 
- sudo dnf install fping  -y
+sudo dnf install fping  -y
 
 ```
 ### Wine
