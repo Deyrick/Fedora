@@ -1,4 +1,4 @@
-# Things to do after installing Fedora Workstation 30/31/32/33 ...  (Apps, Settings, and Tweaks)
+# Things to do after installing my Fedora Workstation 30/31/32/33 ...  (Apps, Settings, and Tweaks)
 
 # Wayland or Xorg
 By Default Wayland is enabled. If you have a Nvidia card this is not working well, so you would have to disable it.
@@ -40,6 +40,30 @@ sudo fwupdmgr update
 sudo reboot now
 
 ```
+
+### Additional repositories
+
+I enable third party repositories by going into Software -> Software Repositories -> Third Party Repositories -> Enable All. I go through the list and enable all the repositories I think I need such as RPM Fusion NVIDIA Driver. Then I run
+
+```shell
+
+sudo dnf install -y  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+```
+o enable the RPM Fusion free and nonfree repositories. Afterwards I run
+
+
+```shell
+
+sudo dnf upgrade --refresh
+sudo dnf groupupdate core
+sudo dnf install -y rpmfusion-free-release-tainted
+sudo dnf install -y dnf-plugins-core
+
+```
+Checkout `sudo dnf grouplist -v` to see available groups you might be interested in.
+
 ### Improve Font Rendering
 The default font rendering in Fedora may appear blurry on LCD monitors. Gnome's OS settings application lacks the ability to change font rendering. You must install the Gnome Tweak Tool to adjust these settings. Gnome Tweak Tool can be installed from the Fedora or from a terminal as shown below:
 
@@ -73,33 +97,20 @@ sudo dnf install flameshot
 4. Insert in"Command" `flameshot gui`
 5. In "Set Shortcut"`place a key combination of your choice`,`Add` and done
 
+### Google Chrome
 
-### Peek
+If I ever need Google Chrome, then I enable the repo in the software manager and install it via the software shop.
 
-Recording the screen without suffering:
 
-```shell
-
-sudo add-apt-repository ppa:peek-developers/stable -y 
-
-sudo apt update
-
-sudo apt install peek -y
-
-```
 ### The most used network programs in everyday life 
 
 ```shell
 
-sudo apt install nmap -y
+sudo dnf install nmap -y
 
-sudo apt install snmp -y
+sudo dnf install netdiscover -y
 
-sudo apt install whois -y
-
-sudo apt install netdiscover -y
-
- sudo apt install fping  -y
+ sudo dnf install fping  -y
 
 ```
 ### Wine
@@ -131,22 +142,14 @@ The basics that work
 
 1. Qbittorrent
 2. Neofectch
-3. Htop
-4. Visual Studio Code
-5. Rar, Urar and Zip
 
 ```shell
 
-sudo apt install qbittorrent -y
+sudo dnf install qbittorrent -y
 
-sudo apt install neofetch -y
-
-sudo apt install code -y
-
-sudo apt install rar unrar p7zip-full p7zip-rar -y
+sudo dnf install neofetch -y
 
 ```
-
 
 ### Firefox
 
@@ -161,9 +164,6 @@ Firefox in Gnome can experience screen tearing and other performance-inhibiting 
 4. Copy and paste`layers.force-active` into the search box and Enable it
 5. Restart Firefox and observe smoother scrolling behavior
 
-### And all of that was automated in the script
-
-`ubuntu.sh`
 
 ### My Wallpaper
 
