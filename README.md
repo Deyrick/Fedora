@@ -129,15 +129,29 @@ sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal mai
 sudo apt update && sudo apt install --install-recommends winehq-stable -y
 
 ```
-### Codecs
+### Multimedia Codecs
 
 The basics that work
 
 ```shell
 
- sudo apt install ubuntu-restricted-extras -y
+sudo dnf groupupdate sound-and-video
+sudo dnf install -y libdvdcss
+sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ffmpeg gstreamer-ffmpeg 
+sudo dnf install -y lame\* --exclude=lame-devel
+sudo dnf group upgrade --with-optional Multimedia
 
 ```
+For OpenH264 in Firefox I run:
+
+```shell
+
+sudo dnf config-manager --set-enabled fedora-cisco-openh264
+sudo dnf install -y gstreamer1-plugin-openh264 mozilla-openh264
+
+```
+Afterwards you need to open Firefox, go to menu → Add-ons → Plugins and enable OpenH264 plugin. You can do a simple test whether your H.264 works in RTC on this page (check Require H.264 video).
+
 ### Optional: "Software that you will need sometime"
 
 1. Qbittorrent
@@ -163,6 +177,26 @@ Firefox in Gnome can experience screen tearing and other performance-inhibiting 
 3. Copy and paste`layers.acceleration.force-enabled` into the search box and Enable it
 4. Copy and paste`layers.force-active` into the search box and Enable it
 5. Restart Firefox and observe smoother scrolling behavior
+
+
+### Gnome Settings
+
+
+    1. Set up Wifi, Ethernet and VPN
+    2. Turn off bluetooth
+    3. Change wallpaper
+    4. Automatically delete recent files and trash
+    5. Turn of screen after never
+    6. Deactivate system sounds, mute mic
+    7. Turn of suspend, shutdown for power button
+    8. Turn on natural scrolling for mouse touchpad
+    9. Go through keyboard shortcuts and adapt, I also add custom ones:
+      1. xkill on CTRL+ALT+X
+      2. gnome-terminal` on CTRL+ALT+T
+    10. Change clock to 24h format
+    11. Display battery as percentage
+    12. Check your default programs
+
 
 
 ### My Wallpaper
