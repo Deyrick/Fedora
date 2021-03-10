@@ -1,4 +1,15 @@
-# Fedora Setup Forever
+# Things to do after installing Fedora Workstation 30/31/32/33 ...  (Apps, Settings, and Tweaks)
+
+# Wayland or Xorg
+By Default Wayland is enabled. If you have a Nvidia card this is not working well, so you would have to disable it.
+
+I disable it by uncommenting `WaylandEnable=false` and adding `DefaultSession=gnome-xorg.desktop` to the [daemon] section of /etc/gdm/custom.conf:
+```shell
+sudo nano /etc/gdm/custom.conf
+# [daemon]
+# WaylandEnable=false
+# DefaultSession=gnome-xorg.desktop
+```
 
 ### Update the OS and install common tools
 
