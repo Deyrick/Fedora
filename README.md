@@ -5,23 +5,45 @@ By Default Wayland is enabled. If you have a Nvidia card this is not working wel
 
 I disable it by uncommenting `WaylandEnable=false` and adding `DefaultSession=gnome-xorg.desktop` to the [daemon] section of /etc/gdm/custom.conf:
 ```shell
+
 sudo nano /etc/gdm/custom.conf
 # [daemon]
 # WaylandEnable=false
 # DefaultSession=gnome-xorg.desktop
+
+```
+Next time you reboot the system it will boot into an Xorg Gnome session.
+
+### Set hostname
+
+By default my machine is called localhost; hence, I rename it for better accessability on the network:
+
+```shell
+
+hostnamectl set-hostname fedora
+
 ```
 
 ### Update the OS and install common tools
 
-The first thing you should do is get the latest security updates:
+### Install updates and reboot:
 
 ```shell
-sudo apt update && sudo apt dist-upgrade -y
+
+sudo dnf upgrade --refresh
+sudo dnf check
+sudo dnf autoremove
+sudo fwupdmgr get-devices
+sudo fwupdmgr refresh --force
+sudo fwupdmgr get-updates
+sudo fwupdmgr update
+sudo reboot now
+
 ```
 ### Improve Font Rendering
-The default font rendering in Pop!_OS may appear blurry on LCD monitors. Gnome's OS settings application lacks the ability to change font rendering. You must install the Gnome Tweak Tool to adjust these settings. Gnome Tweak Tool can be installed from the Fedora or from a terminal as shown below:
+The default font rendering in Fedora may appear blurry on LCD monitors. Gnome's OS settings application lacks the ability to change font rendering. You must install the Gnome Tweak Tool to adjust these settings. Gnome Tweak Tool can be installed from the Fedora or from a terminal as shown below:
 
-   1. Run `sudo apt install gnome-tweak-tool`
+   1. Run `sudo dnf install gnome-tweak-tool`
    2. Run `gnome-tweaks`
    3. Fonts > Hinting > Set to "Full"
    4. Fonts > Antialiasing > Set to "Subpixel (for LCD screens)"
@@ -30,16 +52,17 @@ The default font rendering in Pop!_OS may appear blurry on LCD monitors. Gnome's
 Tilix may be preferable to the default Gnome terminal:
 
 ```shell
-sudo apt install tilix
+
+sudo dnf install tilix
+
 ```
 
 ### Flameshot
 
-Tilix may be preferable to the default Gnome terminal:
-
 ```shell
 
-sudo apt install flameshot
+sudo dnf install flameshot
+
 ```
 
 ### Optional: Create Shortcut for screenshot
