@@ -120,13 +120,11 @@ You will probably need to use some Windows software daily for this, we will inst
 
 ```shell
 
-sudo dpkg --add-architecture i386 -y
+sudo dnf -y install dnf-plugins-core
 
-wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add - -y
+sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/32/winehq.repo
 
-sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' -y
-
-sudo apt update && sudo apt install --install-recommends winehq-stable -y
+sudo dnf -y install winehq-stable
 
 ```
 ### Multimedia Codecs
