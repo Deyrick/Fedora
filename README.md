@@ -97,6 +97,14 @@ sudo dnf install flameshot
 4. Insert in"Command" `flameshot gui`
 5. In "Set Shortcut"`place a key combination of your choice`,`Add` and done
 
+### Optional: My favorite extension "dash-to-dock"
+
+```shell
+
+sudo dnf install gnome-shell-extension-dash-to-dock
+
+```
+
 ### Google Chrome
 
 If I ever need Google Chrome, then I enable the repo in the software manager and install it via the software shop.
