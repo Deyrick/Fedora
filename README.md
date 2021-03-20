@@ -30,8 +30,8 @@ I enable third party repositories by going into Software -> Software Repositorie
 
 ```shell
 
-sudo dnf install -y  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf -y install  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf -y install  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 ```
 o enable the RPM Fusion free and nonfree repositories. Afterwards I run
@@ -39,10 +39,10 @@ o enable the RPM Fusion free and nonfree repositories. Afterwards I run
 
 ```shell
 
-sudo dnf upgrade --refresh
-sudo dnf groupupdate core
-sudo dnf install -y rpmfusion-free-release-tainted
-sudo dnf install -y dnf-plugins-core
+sudo dnf -y upgrade --refresh
+sudo dnf -y groupupdate core
+sudo dnf -y install rpmfusion-free-release-tainted
+sudo dnf -y install  dnf-plugins-core
 
 ```
 Checkout `sudo dnf grouplist -v` to see available groups you might be interested in.
@@ -51,7 +51,7 @@ Checkout `sudo dnf grouplist -v` to see available groups you might be interested
 
 ```shell
 
-sudo dnf install fedora-workstation-repositories -y
+sudo dnf -y install fedora-workstation-repositories
 
 ```
 
@@ -61,13 +61,8 @@ sudo dnf install fedora-workstation-repositories -y
 
 ```shell
 
-sudo dnf upgrade --refresh
-sudo dnf check
-sudo dnf autoremove
-sudo fwupdmgr get-devices
-sudo fwupdmgr refresh --force
-sudo fwupdmgr get-updates
-sudo fwupdmgr update
+sudo dnf -y upgrade --refresh
+sudo dnf -y autoremove
 sudo reboot now
 
 ```
@@ -86,7 +81,7 @@ Tilix may be preferable to the default Gnome terminal:
 
 ```shell
 
-sudo dnf install tilix
+sudo dnf -y install tilix
 
 ```
 
@@ -94,7 +89,7 @@ sudo dnf install tilix
 
 ```shell
 
-sudo dnf install flameshot
+sudo dnf -y install flameshot
 
 ```
 
@@ -106,14 +101,6 @@ sudo dnf install flameshot
 4. Insert in"Command" `flameshot gui`
 5. In "Set Shortcut"`place a key combination of your choice`,`Add` and done
 
-### Optional: My favorite extension "dash-to-dock"
-
-```shell
-
-sudo dnf install gnome-shell-extension-dash-to-dock
-
-```
-
 ### Google Chrome
 
 If I ever need Google Chrome, then I enable the repo in the software manager and install it via the software shop.
@@ -123,11 +110,11 @@ If I ever need Google Chrome, then I enable the repo in the software manager and
 
 ```shell
 
-sudo dnf install nmap -y
+sudo dnf -y install nmap
 
-sudo dnf install netdiscover -y
+sudo dnf -y install netdiscover
 
-sudo dnf install fping  -y
+sudo dnf -y install fping
 
 ```
 ### Wine
@@ -139,7 +126,7 @@ You will probably need to use some Windows software daily for this, we will inst
 
 sudo dnf -y install dnf-plugins-core
 
-sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/32/winehq.repo
+sudo dnf -y config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/32/winehq.repo
 
 sudo dnf -y install winehq-stable
 
@@ -150,19 +137,19 @@ The basics that work
 
 ```shell
 
-sudo dnf groupupdate sound-and-video
-sudo dnf install -y libdvdcss
-sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ffmpeg gstreamer-ffmpeg 
-sudo dnf install -y lame\* --exclude=lame-devel
-sudo dnf group upgrade --with-optional Multimedia
+sudo dnf -y groupupdate sound-and-video
+sudo dnf -y install libdvdcss
+sudo dnf -y install gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ffmpeg gstreamer-ffmpeg 
+sudo dnf -y install lame\* --exclude=lame-devel
+sudo dnf -y group upgrade --with-optional Multimedia
 
 ```
 For OpenH264 in Firefox I run:
 
 ```shell
 
-sudo dnf config-manager --set-enabled fedora-cisco-openh264
-sudo dnf install -y gstreamer1-plugin-openh264 mozilla-openh264
+sudo dnf -y config-manager --set-enabled fedora-cisco-openh264
+sudo dnf -y install gstreamer1-plugin-openh264 mozilla-openh264
 
 ```
 Afterwards you need to open Firefox, go to menu → Add-ons → Plugins and enable OpenH264 plugin. You can do a simple test whether your H.264 works in RTC on this page (check Require H.264 video).
@@ -174,9 +161,9 @@ Afterwards you need to open Firefox, go to menu → Add-ons → Plugins and enab
 
 ```shell
 
-sudo dnf install qbittorrent -y
+sudo dnf -y install qbittorrent 
 
-sudo dnf install neofetch -y
+sudo dnf -y install neofetch
 
 ```
 
