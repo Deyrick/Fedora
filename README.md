@@ -24,23 +24,6 @@ hostnamectl set-hostname fedora
 
 ```
 
-### Update the OS and install common tools
-
-### Install updates and reboot:
-
-```shell
-
-sudo dnf upgrade --refresh
-sudo dnf check
-sudo dnf autoremove
-sudo fwupdmgr get-devices
-sudo fwupdmgr refresh --force
-sudo fwupdmgr get-updates
-sudo fwupdmgr update
-sudo reboot now
-
-```
-
 ### Additional repositories
 
 I enable third party repositories by going into Software -> Software Repositories -> Third Party Repositories -> Enable All. I go through the list and enable all the repositories I think I need such as RPM Fusion NVIDIA Driver. Then I run
@@ -63,6 +46,24 @@ sudo dnf install -y dnf-plugins-core
 
 ```
 Checkout `sudo dnf grouplist -v` to see available groups you might be interested in.
+
+### Update the OS and install common tools
+
+### Install updates and reboot:
+
+```shell
+
+sudo dnf upgrade --refresh
+sudo dnf check
+sudo dnf autoremove
+sudo fwupdmgr get-devices
+sudo fwupdmgr refresh --force
+sudo fwupdmgr get-updates
+sudo fwupdmgr update
+sudo reboot now
+
+```
+
 
 ### Improve Font Rendering
 The default font rendering in Fedora may appear blurry on LCD monitors. Gnome's OS settings application lacks the ability to change font rendering. You must install the Gnome Tweak Tool to adjust these settings. Gnome Tweak Tool can be installed from the Fedora or from a terminal as shown below:
