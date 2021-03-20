@@ -47,6 +47,14 @@ sudo dnf install -y dnf-plugins-core
 ```
 Checkout `sudo dnf grouplist -v` to see available groups you might be interested in.
 
+### Additional repositories Worktation
+
+```shell
+
+sudo dnf install fedora-workstation-repositories -y
+
+```
+
 ### Update the OS and install common tools
 
 ### Install updates and reboot:
