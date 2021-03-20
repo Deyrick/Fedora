@@ -9,7 +9,7 @@ I disable it by uncommenting `WaylandEnable=false` and adding `DefaultSession=gn
 sudo nano /etc/gdm/custom.conf
 # [daemon]
 # WaylandEnable=false
-# DefaultSession=gnome-xorg.desktop
+ DefaultSession=gnome-xorg.desktop
 
 ```
 Next time you reboot the system it will boot into an Xorg Gnome session.
