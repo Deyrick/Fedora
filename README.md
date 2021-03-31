@@ -1,4 +1,4 @@
-# Things to do after installing my Fedora Workstation 32 (Apps, Settings, and Tweaks)
+# Things to do after installing my Fedora Workstation 32/33 (Apps, Settings, and Tweaks)
 
 # Wayland or Xorg
 By Default Wayland is enabled. If you have a Nvidia card this is not working well, so you would have to disable it.
