@@ -3,7 +3,7 @@
 # Wayland or Xorg
 By Default Wayland is enabled. If you have a Nvidia card this is not working well, so you would have to disable it.
 
-I disable it by uncommenting `WaylandEnable=false` and adding `DefaultSession=gnome-xorg.desktop` to the [daemon] section of /etc/gdm/custom.conf:
+disable it by uncommenting `WaylandEnable=false` and adding `DefaultSession=gnome-xorg.desktop` to the [daemon] section of /etc/gdm/custom.conf:
 ```shell
 
 sudo nano /etc/gdm/custom.conf
@@ -12,7 +12,8 @@ sudo nano /etc/gdm/custom.conf
  DefaultSession=gnome-xorg.desktop
 
 ```
-I add some flags to the dnf conf file to speed it up:
+add some flags to the dnf conf file to speed it up:
+
 Next time you reboot the system it will boot into an Xorg Gnome session.
 
 # DNF flags
