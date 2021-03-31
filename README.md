@@ -8,7 +8,7 @@ I disable it by uncommenting `WaylandEnable=false` and adding `DefaultSession=gn
 
 sudo nano /etc/gdm/custom.conf
 # [daemon]
-# WaylandEnable=false
+ WaylandEnable=false
  DefaultSession=gnome-xorg.desktop
 
 ```
