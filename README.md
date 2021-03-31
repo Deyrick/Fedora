@@ -12,9 +12,9 @@ sudo nano /etc/gdm/custom.conf
  DefaultSession=gnome-xorg.desktop
 
 ```
-### DNF flags
+# DNF flags
 
-# Add some flags to the dnf conf file to speed it up:
+### Add some flags to the dnf conf file to speed it up:
 ```shell
 
 echo 'fastestmirror=1' | sudo tee -a /etc/dnf/dnf.conf
