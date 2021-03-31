@@ -12,6 +12,9 @@ sudo nano /etc/gdm/custom.conf
  DefaultSession=gnome-xorg.desktop
 
 ```
+I add some flags to the dnf conf file to speed it up:
+Next time you reboot the system it will boot into an Xorg Gnome session.
+
 # DNF flags
 
 ### Add some flags to the dnf conf file to speed it up:
@@ -33,9 +36,6 @@ cat /etc/dnf/dnf.conf
 
 ```
 
-
-I add some flags to the dnf conf file to speed it up:
-Next time you reboot the system it will boot into an Xorg Gnome session.
 
 ### Set hostname
 
