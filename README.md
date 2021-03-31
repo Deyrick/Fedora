@@ -141,6 +141,21 @@ sudo dnf -y install netdiscover
 sudo dnf -y install fping
 
 ```
+### How to Setup an L2TP/IPsec VPN Client
+
+
+```shell
+
+sudo dnf -y install xl2tpd
+
+sudo dnf -y install NetworkManager-l2tp
+
+sudo dnf -y install NetworkManager-l2tp-gnome
+
+sudo service NetworkManager restart
+
+```
+
 ### Wine
 
 You will probably need to use some Windows software daily for this, we will install wine in the latest version.
