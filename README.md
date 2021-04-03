@@ -242,8 +242,3 @@ Firefox in Gnome can experience screen tearing and other performance-inhibiting 
     11. Display battery as percentage
     12. Check your default programs
 
-
-
-### My Wallpaper
-
-![Wallpaper](https://github.com/Deyrick/pop-os-setup/blob/main/Dual%20Monitor%20Wallpaper%20-%20Imgur.jpg)
