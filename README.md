@@ -176,8 +176,6 @@ The basics that work
 
 ```shell
 
-sudo dnf -y groupupdate sound-and-video
-sudo dnf -y install libdvdcss
 sudo dnf -y install gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ffmpeg gstreamer-ffmpeg 
 sudo dnf -y install lame\* --exclude=lame-devel
 sudo dnf -y group upgrade --with-optional Multimedia
