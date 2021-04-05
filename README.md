@@ -55,7 +55,10 @@ I enable third party repositories by going into Software -> Software Repositorie
 ```shell
 
 sudo dnf -y install  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+
 sudo dnf -y install  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf -y groupupdate core
 
 ```
 o enable the RPM Fusion free and nonfree repositories. Afterwards I run
@@ -63,9 +66,8 @@ o enable the RPM Fusion free and nonfree repositories. Afterwards I run
 
 ```shell
 
-sudo dnf -y upgrade --refresh
 sudo dnf -y groupupdate core
-sudo dnf -y install rpmfusion-free-release-tainted
+
 sudo dnf -y install  dnf-plugins-core
 
 ```
@@ -86,7 +88,11 @@ sudo dnf -y install fedora-workstation-repositories
 ```shell
 
 sudo dnf -y upgrade --refresh
+
+sudo dnf install dnf-plugin-system-upgrade
+
 sudo dnf -y autoremove
+
 sudo reboot now
 
 ```
@@ -176,9 +182,11 @@ The basics that work
 
 ```shell
 
-sudo dnf -y install gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ffmpeg gstreamer-ffmpeg 
-sudo dnf -y install lame\* --exclude=lame-devel
-sudo dnf -y group upgrade --with-optional Multimedia
+sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
+
+sudo dnf install lame\* --exclude=lame-devel
+
+sudo dnf group upgrade --with-optional Multimedia
 
 ```
 For OpenH264 in Firefox I run:
@@ -186,6 +194,7 @@ For OpenH264 in Firefox I run:
 ```shell
 
 sudo dnf -y config-manager --set-enabled fedora-cisco-openh264
+
 sudo dnf -y install gstreamer1-plugin-openh264 mozilla-openh264
 
 ```
