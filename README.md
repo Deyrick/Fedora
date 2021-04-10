@@ -35,8 +35,9 @@ cat /etc/dnf/dnf.conf
 # max_parallel_downloads=10
 # deltarpm=true
 
-```
+sudo reboot now
 
+```
 
 ### Set hostname
 
@@ -45,39 +46,6 @@ By default my machine is called localhost; hence, I rename it for better accessa
 ```shell
 
 hostnamectl set-hostname fedora
-
-```
-
-### Additional repositories
-
-I enable third party repositories by going into Software -> Software Repositories -> Third Party Repositories -> Enable All. I go through the list and enable all the repositories I think I need such as RPM Fusion NVIDIA Driver. Then I run
-
-```shell
-
-sudo dnf -y install  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-
-sudo dnf -y install  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-sudo dnf -y groupupdate core
-
-```
-o enable the RPM Fusion free and nonfree repositories. Afterwards I run
-
-
-```shell
-
-sudo dnf -y groupupdate core
-
-sudo dnf -y install  dnf-plugins-core
-
-```
-Checkout `sudo dnf grouplist -v` to see available groups you might be interested in.
-
-### Additional repositories Worktation
-
-```shell
-
-sudo dnf -y install fedora-workstation-repositories
 
 ```
 
@@ -105,31 +73,7 @@ The default font rendering in Fedora may appear blurry on LCD monitors. Gnome's 
    2. Run `gnome-tweaks`
    3. Fonts > Hinting > Set to "Full"
    4. Fonts > Antialiasing > Set to "Subpixel (for LCD screens)"
-### Tilix
 
-Tilix may be preferable to the default Gnome terminal:
-
-```shell
-
-sudo dnf -y install tilix
-
-```
-
-### Flameshot
-
-```shell
-
-sudo dnf -y install flameshot
-
-```
-
-### Optional: Create Shortcut for screenshot
-
-1. Navigate to Settings > Keyboard > Costumize Shortcuts
-2. Click on Custom Shortcuts > Add Shortcut
-3. Insert in"Name" `Flameshot`
-4. Insert in"Command" `flameshot gui`
-5. In "Set Shortcut"`place a key combination of your choice`,`Add` and done
 
 ### Google Chrome
 
