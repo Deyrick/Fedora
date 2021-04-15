@@ -1,5 +1,5 @@
-# Things to do after installing my Fedora Workstation 32/33 (Apps, Settings, and Tweaks)
-
+# Things to do after installing my Fedora Workstation 33 (Apps, Settings, and Tweaks)
+# 
 # Wayland or Xorg
 By Default Wayland is enabled. If you have a Nvidia card this is not working well, so you would have to disable it.
 
@@ -15,29 +15,6 @@ sudo nano /etc/gdm/custom.conf
 add some flags to the dnf conf file to speed it up:
 
 Next time you reboot the system it will boot into an Xorg Gnome session.
-
-# DNF flags
-
-### Add some flags to the dnf conf file to speed it up:
-```shell
-
-echo 'fastestmirror=1' | sudo tee -a /etc/dnf/dnf.conf
-echo 'max_parallel_downloads=10' | sudo tee -a /etc/dnf/dnf.conf
-echo 'deltarpm=true' | sudo tee -a /etc/dnf/dnf.conf
-cat /etc/dnf/dnf.conf
-# [main]
-# gpgcheck=1
-# installonly_limit=3
-# clean_requirements_on_remove=True
-# best=False
-# skip_if_unavailable=True
-# fastestmirror=1
-# max_parallel_downloads=10
-# deltarpm=true
-
-sudo reboot now
-
-```
 
 ### Set hostname
 
@@ -56,8 +33,6 @@ hostnamectl set-hostname fedora
 ```shell
 
 sudo dnf -y upgrade --refresh
-
-sudo dnf install dnf-plugin-system-upgrade
 
 sudo dnf -y autoremove
 
@@ -115,7 +90,7 @@ You will probably need to use some Windows software daily for this, we will inst
 
 sudo dnf -y install dnf-plugins-core
 
-sudo dnf -y config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/32/winehq.repo
+sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/33/winehq.repo
 
 sudo dnf -y install winehq-stable
 
@@ -192,4 +167,112 @@ Firefox in Gnome can experience screen tearing and other performance-inhibiting 
     10. Change clock to 24h format
     11. Display battery as percentage
     12. Check your default programs
+
+### Optional
+
+### Improving the performance of Fedora Workstation
+
+### Attention! This is a usage report, not a tutorial
+
+I said a lot, come on. Reducing swap access (Fedora defaults to 60. The lower the number, the less access): 
+
+```shell
+
+ sudo sysctl vm.swappiness=5
+ 
+ sudo sysctl vm.vfs_cache_pressure=50
+  
+```
+ Making changes permanent by editing the /etc/sysctl.d/99-sysctl.conf file
+```shell
+
+ sudo nano /etc/sysctl.d/99-sysctl.conf
+    
+```
+ Add:
+
+```shell
+
+vm.swappiness=5
+vm.vfs_cache_pressure=50
+
+```
+ In real life, I don't use GNOME Software or Anaconda:
+ 
+ 
+```shell
+
+ sudo dnf remove gnome-software
+
+ sudo dnf remove anaconda
+ 
+```
+
+Disabling Bluetooth and printing services :
+
+```shell
+
+sudo systemctl mask bluetooth.service bluetooth.target cups-browsed.service cups.path cups.service cups.socket
+
+```
+
+Removing things I don't use in GNOME :
+
+```shell
+
+sudo dnf remove cheese \
+evolution \
+evolution-ews \
+evolution-help \
+gfbgraph \
+gnome-boxes \
+gnome-calendar \
+gnome-contacts \
+gnome-dictionary \
+gnome-documents \
+gnome-getting-started-docs \
+gnome-initial-setup \
+gnome-maps \
+gnome-online-miners \
+gnome-photos \
+gnome-software \
+gnome-user-docs \
+gnome-user-share \
+gnome-video-effects \
+gnome-weather \
+simple-scan \
+totem \
+tracker-miners \
+yelp
+
+```
+Ensuring that the programs I use are installed
+
+
+```shell
+
+sudo dnf install eog \
+evince \
+evolution-data-server \
+flatpak \
+gdm \
+gnome-keyring \
+gnome-menus \
+gnome-screenshot \
+gnome-shell \
+gnome-terminal \
+gnome-tweaks \
+nautilus \
+redhat-menus
+
+```
+
+Considerations :
+
+None of the above is necessary if "you are a normal person". If you are going to reproduce something, do it carefully, this is not a manual.
+I decided to show it here, but I know where I'm going and the reasons too, and there are more things that I disable than the ones I showed. If you don't know what you're doing, please (reinforcement), don't do it.
+
+Until next time, guys.
+
+
 
