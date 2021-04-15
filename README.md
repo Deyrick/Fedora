@@ -146,10 +146,6 @@ Firefox in Gnome can experience screen tearing and other performance-inhibiting 
 5. Restart Firefox and observe smoother scrolling behavior
 
 
-### Optional: Automating the process:
-
- Run the fedora-setup script: `fedora-setup`
-
 ### Gnome Settings
 
 
