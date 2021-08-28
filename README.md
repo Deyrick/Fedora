@@ -1,4 +1,4 @@
-# Things to do after installing my Fedora Workstation 33 (Apps, Settings, and Tweaks)
+# Things to do after installing my Fedora Workstation (Apps, Settings, and Tweaks)
 # 
 # Wayland or Xorg
 By Default Wayland is enabled. If you have a Nvidia card this is not working well, so you would have to disable it.
@@ -95,6 +95,27 @@ sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/33/w
 sudo dnf -y install winehq-stable
 
 ```
+
+### RPM Ropositories 
+
+```
+sudo dnf install \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+  
+ ```
+ 
+  ### Optionally, enable the Nonfree repository:
+  
+  
+  ```
+  sudo dnf install \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+
+   sudo dnf group update core
+   
+```
+
 ### Multimedia Codecs
 
 The basics that work
