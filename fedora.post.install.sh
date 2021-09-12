@@ -29,7 +29,7 @@ gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 
 sudo dnf install -y fedora-workstation-repositories
 
-sudo dnf update
+sudo dnf -y update
 
 ## enable rpmfusion repos
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
