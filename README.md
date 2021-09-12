@@ -185,6 +185,6 @@ Firefox in Gnome can experience screen tearing and other performance-inhibiting 
     11. Display battery as percentage
     12. Check your default programs
 
-
-
-
+<p align="center">
+<img src="https://github.com/Deyrick/Fedora/blob/main/2021-09-12_16-57.png" >
+</p>
