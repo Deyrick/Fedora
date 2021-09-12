@@ -62,5 +62,13 @@ sudo dnf -y install gstreamer1-plugin-openh264 mozilla-openh264
 
 sudo dnf -y install qbittorrent 
 sudo dnf -y install neofetch
+sudo dnf -y install flameshot
 
-#### and 
+
+sudo neofetch
+
+echo "That all Folks!"
+
+sleep 10
+
+sudo reboot
