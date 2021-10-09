@@ -66,35 +66,7 @@ sudo dnf -y install netdiscover
 sudo dnf -y install fping
 
 ```
-### How to Setup an L2TP/IPsec VPN Client
 
-
-```shell
-
-sudo dnf -y install xl2tpd
-
-sudo dnf -y install NetworkManager-l2tp
-
-sudo dnf -y install NetworkManager-l2tp-gnome
-
-sudo service NetworkManager restart
-
-```
-
-### Wine
-
-You will probably need to use some Windows software daily for this, we will install wine in the latest version.
-
-
-```shell
-
-sudo dnf -y install dnf-plugins-core
-
-sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/33/winehq.repo
-
-sudo dnf -y install winehq-stable
-
-```
 
 ### RPM Ropositories 
 
@@ -110,7 +82,6 @@ sudo dnf install \
   ```
   sudo dnf install \
   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
 
    sudo dnf group update core
    
@@ -128,14 +99,30 @@ sudo dnf install lame\* --exclude=lame-devel
 
 sudo dnf group upgrade --with-optional Multimedia
 
+
 ```
-For OpenH264 in Firefox I run:
+
+### Install Edge
+```shell
+
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc -y
+
+sudo dnf -y config-manager --add-repo https://packages.microsoft.com/yumrepos/edge
+
+sudo mv /etc/yum.repos.d/packages.microsoft.com_yumrepos_edge.repo /etc/yum.repos.d/microsoft-edge-dev.repo 
+
+sudo dnf -y install microsoft-edge-dev
+
+```
+
+
+### Delete Firefox:
 
 ```shell
 
-sudo dnf -y config-manager --set-enabled fedora-cisco-openh264
+sudo dnf -y remove firefox*
 
-sudo dnf -y install gstreamer1-plugin-openh264 mozilla-openh264
+sudo dnf clean all
 
 ```
 Afterwards you need to open Firefox, go to menu → Add-ons → Plugins and enable OpenH264 plugin. You can do a simple test whether your H.264 works in RTC on this page (check Require H.264 video).
