@@ -35,14 +35,6 @@ sudo dnf -y update
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
 sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-## How to Setup an L2TP/IPsec VPN Client
-sudo dnf -y install xl2tpd
-
-sudo dnf -y install NetworkManager-l2tp
-
-sudo dnf -y install NetworkManager-l2tp-gnome
-
-sudo service NetworkManager restart
 
 #Multimedia Codecs
 
@@ -52,11 +44,22 @@ sudo dnf -y install lame\* --exclude=lame-devel
 
 sudo dnf -y group upgrade --with-optional Multimedia
 
-##For OpenH264 in Firefox I run:
+## Install edge
 
-sudo dnf -y config-manager --set-enabled fedora-cisco-openh264
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc -y
 
-sudo dnf -y install gstreamer1-plugin-openh264 mozilla-openh264
+sudo dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/edge -y
+
+sudo mv /etc/yum.repos.d/packages.microsoft.com_yumrepos_edge.repo /etc/yum.repos.d/microsoft-edge-dev.repo -y
+
+sudo dnf install microsoft-edge-dev -y
+
+
+## Delete Firrefox*
+
+sudo dnf -y remove firefox
+
+sudo dnf -y clean all
 
 #my necessary programs
 
@@ -67,7 +70,7 @@ sudo dnf -y install flameshot
 
 sudo neofetch
 
-echo "That all Folks!"
+echo "Thats all Folks!"
 
 sleep 10
 
