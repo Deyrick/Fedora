@@ -72,6 +72,6 @@ sudo neofetch
 
 echo "Thats all Folks!"
 
-sleep 10
+sleep 20
 
 sudo reboot
