@@ -102,7 +102,19 @@ sudo dnf group upgrade --with-optional Multimedia
 
 ```
 
+### For OpenH264 in Firefox I run:
+
+
+```shell 
+
+sudo dnf -y config-manager --set-enabled fedora-cisco-openh264
+
+sudo dnf -y install gstreamer1-plugin-openh264 mozilla-openh264
+
+
+```
 ### Install Edge
+
 ```shell
 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc -y
