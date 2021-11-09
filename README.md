@@ -113,7 +113,7 @@ sudo dnf -y install gstreamer1-plugin-openh264 mozilla-openh264
 
 
 ```
-### Install Edge
+### Install Edge "Optional"
 
 ```shell
 
@@ -128,7 +128,7 @@ sudo dnf -y install microsoft-edge-dev
 ```
 
 
-### Delete Firefox:
+### Delete Firefox "Optional"
 
 ```shell
 
